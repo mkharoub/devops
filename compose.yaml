@@ -1,0 +1,30 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "9000:80"
+    depends_on: [api]
+  api:
+    build: ./api
+    ports:
+      - "3002:3000"
+    environment:
+      PGHOST: "db"
+      PGUSER: "postgres"
+      PGPASSWORD: "pass"
+      PGDATABASE: "postgres"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: "pass"
+    volumes:
+      - mydata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+volumes:
+  mydata:
