@@ -1,0 +1,11 @@
+name: First Pipeline
+on: push
+jobs:
+  great:
+    runs-on: ubuntue-latest
+    steps:
+      - name: Say Hello
+        run: echo "Hello from First Pipeline!"
+      - name: Show the machine
+        run: whoami, uname -e, pwd
+        
