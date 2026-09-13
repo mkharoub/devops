@@ -9,6 +9,6 @@ jobs:
       - name: Show the machine
         run: |
           whoami
-          uname -e
+          uname -a
           pwd
         
