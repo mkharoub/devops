@@ -4,11 +4,10 @@ jobs:
   great:
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
-        run: echo "Hello from First Pipeline!"
-      - name: Show the machine
-        run: |
-          whoami
-          uname -a
-          pwd
+      - name: Before checkout
+        run: ls -la
+      - name: Checkout code
+        run: actions/checkout@v4
+      - name: After checkout
+        run: ls -la
         
