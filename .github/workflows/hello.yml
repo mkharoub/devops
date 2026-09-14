@@ -1,5 +1,10 @@
 name: First Pipeline
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
 jobs:
   great:
     runs-on: ubuntu-latest
