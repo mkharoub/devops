@@ -7,7 +7,7 @@ jobs:
       - name: Before checkout
         run: ls -la
       - name: Checkout code
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: After checkout
         run: ls -la
         
