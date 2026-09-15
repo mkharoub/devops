@@ -23,3 +23,8 @@ jobs:
     strategy:
       matrix:
         node: [18, 20, 22]
+  build:
+    needs: test
+    steps:
+      - name: Run build after test jobs pass
+        run: echo "building..."
