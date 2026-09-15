@@ -24,6 +24,7 @@ jobs:
       matrix:
         node: [18, 20, 22]
   build:
+    runs-on: ubuntu-latest
     needs: test
     steps:
       - name: Run build after test jobs pass
