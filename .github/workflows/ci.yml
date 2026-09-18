@@ -47,6 +47,6 @@ jobs:
         with:
           context: ./api
           push: true
-          tags:
+          tags: |
             ghcr.io/mkharoub/devops-api:latest
             ghcr.io/mkharoub/devops-api:${{ github.sha }}
