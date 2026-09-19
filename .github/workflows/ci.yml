@@ -47,6 +47,8 @@ jobs:
         with:
           context: ./api
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             ghcr.io/mkharoub/devops-api:latest
             ghcr.io/mkharoub/devops-api:${{ github.sha }}
