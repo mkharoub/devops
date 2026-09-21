@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./api
+        working-directory: api
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,12 +23,14 @@ jobs:
     strategy:
       matrix:
         node: [18, 20, 22]
+
   build:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
       - name: Run build after test jobs pass
         run: echo "building..."
+
   publish:
     runs-on: ubuntu-latest
     needs: [test]
@@ -53,3 +55,67 @@ jobs:
           tags: |
             ghcr.io/mkharoub/devops-api:latest
             ghcr.io/mkharoub/devops-api:${{ github.sha }}
+
+  build-web:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+  deploy:
+    needs: build-web
+    if: github.event_name == 'push' && github.ref == 'ref/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: development
+        uses: actions/deploy-pages@v4 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
