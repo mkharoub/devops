@@ -22,7 +22,7 @@ jobs:
       - run: echo "Testing Node ${{matrix.node}}"
     strategy:
       matrix:
-        node: [18, 20, 22]
+        node: [20, 22]
 
   build:
     runs-on: ubuntu-latest
@@ -82,40 +82,4 @@ jobs:
     steps:
       - id: development
         uses: actions/deploy-pages@v4 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
