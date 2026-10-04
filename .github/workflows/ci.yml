@@ -1,8 +1,14 @@
 name: CI
 on:
   pull_request:
+    paths:
+      - "api/**"
+      - "frontend/**"
   push:
     branches: [main]
+      paths:
+        - "api/**"
+        - "frontend/**"
 jobs:
   test:
     runs-on: ubuntu-latest
