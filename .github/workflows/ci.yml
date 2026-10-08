@@ -22,7 +22,7 @@ jobs:
               - 'frontend/**'
   test:
     needs: changes
-    if: needs.changes.putputs.api == 'true'
+    if: needs.changes.outputs.api == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
