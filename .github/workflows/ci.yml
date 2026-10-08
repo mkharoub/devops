@@ -11,10 +11,10 @@ jobs:
     if: always()
     steps:
       - run: |
-        echo "test=${{ needs.test.result }} build-web=${{ needs.build-web.result }}"
-        if [[ "${{ needs.test.result }}"  == "failure" || "${{ needs.build-web.result }}" == "failure" ]]; then
-          exit 1;
-        fi
+          echo "test=${{ needs.test.result }} build-web=${{ needs.build-web.result }}"
+          if [[ "${{ needs.test.result }}"  == "failure" || "${{ needs.build-web.result }}" == "failure" ]]; then
+            exit 1;
+          fi
   changes:
     runs-on: ubuntu-latest
     outputs:
