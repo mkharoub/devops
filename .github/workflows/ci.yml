@@ -6,7 +6,7 @@ on:
   
 jobs:
   changes:
-    runs-on: ununtu-latest
+    runs-on: ubuntu-latest
     outputs:
       api: ${{ steps.filter.outputs.api }}
       frontend: ${{ steps.filter.outputs.frontend }}
