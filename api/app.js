@@ -23,7 +23,7 @@ app.get("/db-check", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Hello from node behind nginx (nana!!!)",
+    message: "Hello from node behind nginx (nana!!)",
     greeting: process.env.GREETING || "Not set",
     clientIp: req.socket.remoteAddress,
     hostHeader: req.headers["host"],
