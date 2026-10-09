@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0);
-console.log("Hello hello!")
+
   return (
     <>
       <section id="center">
@@ -17,7 +17,7 @@ console.log("Hello hello!")
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1 style="background: red;">BAD RELEASE!!!</h1>
+          <h1 style="{{ background: 'red' }}">BAD RELEASE!!!</h1>
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
